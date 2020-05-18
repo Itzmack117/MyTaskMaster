@@ -1,0 +1,26 @@
+.background{
+    background-color: #474747;
+}
+#lst-btn{
+    margin-top: 43px;
+    background-color: gray;
+}
+.h-f{
+    background-color: rgb(80, 34, 34);
+    color: aliceblue;
+}
+.red-card{
+    background-color: #b80000;
+}
+.yellow-card{
+    background-color: #ffff81;
+}
+.green-card{
+    background-color: green;
+}
+.check-box{
+    height: 1rem;
+    border-radius: 25%;
+    background-color: aliceblue;
+    color: black;
+}
