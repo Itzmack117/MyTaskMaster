@@ -14,7 +14,7 @@ export default class List {
     return /*html*/`
     <div class="col-sm-3">
           <div id="cards" class="card m-4">
-            <div class="card-body"><div class="text-right"><i class="fas fa-trash" onclick ="app.ListController.deleteList(${this.id})"></i></div>
+            <div class="card-body"><div class="text-right"><i class="fas fa-trash-o" onclick ="app.ListController.deleteList(${this.id})"></i></div>
               <h4 class="card-title text-center">${this.name}</h4>
                     <ul class="pl-3">
                     ${this.ItemsTemplate}
@@ -35,7 +35,7 @@ export default class List {
     this.listItems.forEach((item, index) => {
       template += /*html*/`
             <div><input type="checkbox" class="check-box">${item}
-               <div class="text-right"><i class="fas fa-trash" onclick="app.listController.deleteItems('${this.id}', ${index})"></i></div>
+               <div class="text-right"><i class="fas fa-trash-o" onclick="app.listController.deleteItems('${this.id}', ${index})"></i></div>
             </div>
             `
     })
