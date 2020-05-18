@@ -8,6 +8,8 @@ class ListService {
   //NOTE You will need this code to persist your data into local storage, be sure to call the store method to save after each change
   newList(newList) {
     let list = new List(newList)
+    let color = _store.State.lists.find(list.color)
+    console.log(color)
     _store.State.lists.push(list)
     _store.saveState();
   }

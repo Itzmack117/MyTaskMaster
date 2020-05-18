@@ -25,7 +25,6 @@ export default class ListController {
       color: formData.color.value,
     }
     _listService.newList(newList)
-    console.log(newList)
     _drawLists();
   }
   addItem(event, listId) {
@@ -39,7 +38,6 @@ export default class ListController {
     }
     _drawLists();
     _listService.addListItem(item)
-    console.log(item)
   }
   deleteList(listId) {
     _listService.deleteList(listId)

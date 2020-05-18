@@ -21,7 +21,7 @@ export default class List {
                 </ul>
                 <form onsubmit="app.listController.addItem(event, '${this.id}')">
                     <div class="form-group d-flex">
-                        <input type="text" class="form-control" name="event" placeholder="Add List Item" required>
+                        <input type="text" class="form-control" name="listItem" placeholder="Add List Item" required>
                         <button type="submit" class="btn btn-primary"><i
                                 class="fas fa-plus "></i></button>
                     </div>
@@ -35,11 +35,10 @@ export default class List {
     this.listItems.forEach((item, index) => {
       template += /*html*/`
             <div><input type="checkbox" class="check-box">${item}
-               <div class="text-right"><i onclick="app.listController.deleteItems('${this.id}', ${index})"></i></div>
+               <div class="text-right"><i class="fas fa-trash" onclick="app.listController.deleteItems('${this.id}', ${index})"></i></div>
             </div>
             `
     })
     return template;
   }
 }
-
