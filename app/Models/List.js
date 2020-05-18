@@ -13,8 +13,8 @@ export default class List {
   get Template() {
     return /*html*/`
     <div class="col-sm-3">
-          <div id="cards" class="card m-4">
-            <div class="card-body"><div class="text-right"><i class="fas fa-trash-o" onclick ="app.ListController.deleteList(${this.id})"></i></div>
+          <div id="cards" class="card m-4 ${this.color}-card"> 
+            <div class="card-body"><div class="text-right"><i class="fa fa-trash-o" onclick ="app.listController.deleteList('${this.id}')"></i></div>
               <h4 class="card-title text-center">${this.name}</h4>
                     <ul class="pl-3">
                     ${this.ItemsTemplate}
@@ -22,8 +22,7 @@ export default class List {
                 <form onsubmit="app.listController.addItem(event, '${this.id}')">
                     <div class="form-group d-flex">
                         <input type="text" class="form-control" name="listItem" placeholder="Add List Item" required>
-                        <button type="submit" class="btn btn-primary"><i
-                                class="fas fa-plus "></i></button>
+                        <button type="submit" class="btn btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
                 </form>
               </div>
@@ -34,9 +33,8 @@ export default class List {
     let template = ""
     this.listItems.forEach((item, index) => {
       template += /*html*/`
-            <div><input type="checkbox" class="check-box">${item}
-               <div class="text-right"><i class="fas fa-trash-o" onclick="app.listController.deleteItems('${this.id}', ${index})"></i></div>
-            </div>
+      <div><input type="checkbox">${item}<i class="fa fa-trash-o text-right" onclick="app.listController.deleteListItem('${this.id}', ${index})"></i></div>
+      
             `
     })
     return template;

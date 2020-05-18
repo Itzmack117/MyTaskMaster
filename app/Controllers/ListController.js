@@ -1,5 +1,6 @@
 import _listService from "../Services/ListService.js";
 import _store from "../store.js"
+import List from "../Models/List.js";
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
   let listItems = _store.State.lists
@@ -29,7 +30,7 @@ export default class ListController {
   }
   addItem(event, listId) {
     event.preventDefault();
-    let item = event.target.value
+    let item = event.target.listItem.value
     try {
       _listService.addListItem(item, listId)
     }
@@ -37,10 +38,17 @@ export default class ListController {
       alert(error.message)
     }
     _drawLists();
-    _listService.addListItem(item)
   }
   deleteList(listId) {
-    _listService.deleteList(listId)
-    _drawLists()
+    if (window.confirm("Are y\you sure you want to delete this list?")) {
+      _listService.deleteList(listId)
+      _drawLists()
+    }
+  }
+  deleteListItem(listId, index) {
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      _listService.deleteListItem(listId, index)
+      _drawLists()
+    }
   }
 }
